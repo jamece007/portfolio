@@ -1,185 +1,312 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minimal Portfolio | Design Vibe</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        /* 1. 기본 스타일 리셋 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minimal Portfolio | Design Vibe</title>
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff; /* 순백색 또는 #fafafa 추천 */
-            color: #1a1a1a;
-            line-height: 1.6;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-        /* 2. 네비게이션 */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 40px 60px;
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.9);
-            z-index: 1000;
-        }
+<style>
+/* ===============================
+   Reset & Base
+=============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .logo {
-            font-weight: 600;
-            font-size: 1.2rem;
-            letter-spacing: -0.5px;
-            cursor: pointer;
-        }
+body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+}
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-        }
+/* ===============================
+   Navigation
+=============================== */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 60px;
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.9);
+    z-index: 10;
+}
 
-        nav ul li {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            font-weight: 400;
-            transition: opacity 0.3s;
-        }
+.logo {
+    font-weight: 600;
+    letter-spacing: -0.4px;
+}
 
-        nav ul li:hover {
-            opacity: 0.5;
-        }
+nav ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
 
-        /* 3. 포트폴리오 그리드 */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2열 배치 */
-            gap: 40px; /* 이미지 사이 간격 */
-            padding: 0 60px 60px 60px;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
+nav li {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    opacity: 0.8;
+}
 
-        /* 4. 아이템 & 애니메이션 */
-        .item {
-            position: relative;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            overflow: hidden;
-        }
+/* ===============================
+   Gallery
+=============================== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 0 60px 80px;
+    max-width: 1600px;
+    margin: auto;
+}
 
-        .image-wrapper {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 4 / 3; /* 이미지 가로세로 비율 고정 */
-            overflow: hidden;
-            background-color: #f0f0f0;
-        }
+.item {
+    cursor: pointer;
+}
 
-        .item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+.image-wrapper {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #eee;
+}
 
-        /* 호버 시 이미지 확대 */
-        .item:hover img {
-            transform: scale(1.04);
-        }
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .8s cubic-bezier(.16,1,.3,1);
+}
 
-        /* 텍스트 정보 */
-        .item-info {
-            margin-top: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-        }
+/* Hover Zoom */
+.item:hover img {
+    transform: scale(1.05);
+}
 
-        .item-info h3 {
-            font-size: 1rem;
-            font-weight: 400;
-        }
+/* ===============================
+   ▶ Play Icon + Fade
+=============================== */
+.play-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .4s ease;
+}
 
-        .item-info span {
-            font-size: 0.8rem;
-            color: #888;
-        }
+.play-icon {
+    width: 70px;
+    height: 70px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        /* 5. 반응형 (모바일) */
-        @media (max-width: 900px) {
-            .gallery {
-                grid-template-columns: 1fr; /* 모바일은 1열 */
-                padding: 0 20px 20px 20px;
-                gap: 30px;
-            }
-            nav {
-                padding: 30px 20px;
-            }
-        }
-    </style>
+.play-icon::before {
+    content: '';
+    margin-left: 4px;
+    border-style: solid;
+    border-width: 10px 0 10px 16px;
+    border-color: transparent transparent transparent white;
+}
+
+/* Fade in */
+.item:hover .play-overlay {
+    opacity: 1;
+}
+
+/* ===============================
+   Item Info
+=============================== */
+.item-info {
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.item-info span {
+    color: #888;
+}
+
+/* ===============================
+   Vimeo Modal
+=============================== */
+.video-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-inner {
+    position: relative;
+    width: 80%;
+    max-width: 960px;
+    aspect-ratio: 16 / 9;
+}
+
+.video-inner iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+}
+
+/* ===============================
+   Responsive
+=============================== */
+@media (max-width: 900px) {
+    .gallery {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    nav {
+        padding: 30px 20px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <nav>
-        <div class="logo">STUDIO CARZI</div>
-        <ul>
-            <li>Work</li>
-            <li>About</li>
-            <li>Contact</li>
-        </ul>
-    </nav>
+<nav>
+    <div class="logo">STUDIO CARZI</div>
+    <ul>
+        <li>Work</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+</nav>
 
-    <main class="gallery">
-        <a href="#" class="item">
-            <div class="image-wrapper">
-                <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=1000" alt="Work 01">
-            </div>
-            <div class="item-info">
-                <h3>Interior Objects</h3>
-                <span>2024</span>
-            </div>
-        </a>
+<main class="gallery">
 
-        <a href="#" class="item">
-            <div class="image-wrapper">
-                <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=1000" alt="Work 02">
+    <!-- ITEM 01 -->
+    <div class="item video-item" data-vimeo="76979871">
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=1200">
+            <div class="play-overlay">
+                <div class="play-icon"></div>
             </div>
-            <div class="item-info">
-                <h3>Light & Shadow</h3>
-                <span>2024</span>
-            </div>
-        </a>
+        </div>
+        <div class="item-info">
+            <h3>Interior Objects</h3>
+            <span>2024</span>
+        </div>
+    </div>
 
-        <a href="#" class="item">
-            <div class="image-wrapper">
-                <img src="https://images.unsplash.com/photo-1515895309268-5173b15baeba?auto=format&fit=crop&q=80&w=1000" alt="Work 03">
-            </div>
-            <div class="item-info">
-                <h3>Editorial Design</h3>
-                <span>2023</span>
-            </div>
-        </a>
+    <!-- ITEM 02 -->
+    <div class="item video-item" data-vimeo="22439234">
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=1200">
+            <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+        <div class="item-info">
+            <h3>Light & Shadow</h3>
+            <span>2024</span>
+        </div>
+    </div>
 
-        <a href="#" class="item">
-            <div class="image-wrapper">
-                <img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?auto=format&fit=crop&q=80&w=1000" alt="Work 04">
-            </div>
-            <div class="item-info">
-                <h3>Architecture Study</h3>
-                <span>2023</span>
-            </div>
-        </a>
-    </main>
+    <!-- ITEM 03 -->
+    <div class="item video-item" data-vimeo="146022717">
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1515895309268-5173b15baeba?auto=format&fit=crop&q=80&w=1200">
+            <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+        <div class="item-info">
+            <h3>Editorial Design</h3>
+            <span>2023</span>
+        </div>
+    </div>
+
+    <!-- ITEM 04 -->
+    <div class="item video-item" data-vimeo="395212534">
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?auto=format&fit=crop&q=80&w=1200">
+            <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+        <div class="item-info">
+            <h3>Architecture Study</h3>
+            <span>2023</span>
+        </div>
+    </div>
+
+    <!-- ITEM 05 -->
+    <div class="item video-item" data-vimeo="1084537">
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1529429617124-95b109e86bb8?auto=format&fit=crop&q=80&w=1200">
+            <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+        <div class="item-info">
+            <h3>Concept Film</h3>
+            <span>2022</span>
+        </div>
+    </div>
+
+    <!-- ITEM 06 -->
+    <div class="item video-item" data-vimeo="357274789">
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?auto=format&fit=crop&q=80&w=1200">
+            <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+        <div class="item-info">
+            <h3>Motion Experiment</h3>
+            <span>2022</span>
+        </div>
+    </div>
+
+</main>
+
+<!-- Vimeo Modal -->
+<div class="video-modal" id="videoModal">
+    <div class="video-inner">
+        <span class="close-btn" id="closeBtn">×</span>
+        <iframe id="vimeoFrame" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+</div>
+
+<script>
+const modal = document.getElementById('videoModal');
+const frame = document.getElementById('vimeoFrame');
+
+document.querySelectorAll('.video-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const id = item.dataset.vimeo;
+        frame.src = `https://player.vimeo.com/video/${id}?autoplay=1`;
+        modal.style.display = 'flex';
+    });
+});
+
+document.getElementById('closeBtn').onclick = closeModal;
+modal.onclick = e => { if (e.target === modal) closeModal(); };
+
+function closeModal() {
+    modal.style.display = 'none';
+    frame.src = '';
+}
+</script>
 
 </body>
 </html>

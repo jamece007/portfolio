@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Portfolio | Design Vibe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* 1. 기본 스타일 리셋 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff; /* 순백색 또는 #fafafa 추천 */
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* 2. 네비게이션 */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 60px;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+            cursor: pointer;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav ul li {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            font-weight: 400;
+            transition: opacity 0.3s;
+        }
+
+        nav ul li:hover {
+            opacity: 0.5;
+        }
+
+        /* 3. 포트폴리오 그리드 */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2열 배치 */
+            gap: 40px; /* 이미지 사이 간격 */
+            padding: 0 60px 60px 60px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        /* 4. 아이템 & 애니메이션 */
+        .item {
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            overflow: hidden;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3; /* 이미지 가로세로 비율 고정 */
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+
+        .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* 호버 시 이미지 확대 */
+        .item:hover img {
+            transform: scale(1.04);
+        }
+
+        /* 텍스트 정보 */
+        .item-info {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .item-info h3 {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .item-info span {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* 5. 반응형 (모바일) */
+        @media (max-width: 900px) {
+            .gallery {
+                grid-template-columns: 1fr; /* 모바일은 1열 */
+                padding: 0 20px 20px 20px;
+                gap: 30px;
+            }
+            nav {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">STUDIO CARZI</div>
+        <ul>
+            <li>Work</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+
+    <main class="gallery">
+        <a href="#" class="item">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=1000" alt="Work 01">
+            </div>
+            <div class="item-info">
+                <h3>Interior Objects</h3>
+                <span>2024</span>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=1000" alt="Work 02">
+            </div>
+            <div class="item-info">
+                <h3>Light & Shadow</h3>
+                <span>2024</span>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1515895309268-5173b15baeba?auto=format&fit=crop&q=80&w=1000" alt="Work 03">
+            </div>
+            <div class="item-info">
+                <h3>Editorial Design</h3>
+                <span>2023</span>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?auto=format&fit=crop&q=80&w=1000" alt="Work 04">
+            </div>
+            <div class="item-info">
+                <h3>Architecture Study</h3>
+                <span>2023</span>
+            </div>
+        </a>
+    </main>
+
+</body>
+</html>

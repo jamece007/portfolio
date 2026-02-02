@@ -11,7 +11,7 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family:'Inter', sans-serif;
     background:#fff;
     color:#1a1a1a;
 }
@@ -29,10 +29,10 @@ nav {
 }
 
 .logo a {
-    font-weight:600;
-    letter-spacing:-0.4px;
     text-decoration:none;
     color:inherit;
+    font-weight:600;
+    letter-spacing:-0.4px;
 }
 
 nav ul {
@@ -41,22 +41,20 @@ nav ul {
     list-style:none;
 }
 
-nav li a {
-    font-size:0.85rem;
-    letter-spacing:1px;
+nav ul li a {
     text-decoration:none;
     color:inherit;
+    font-size:0.85rem;
+    letter-spacing:1px;
     opacity:.8;
 }
 
-nav li a:hover {
-    opacity:1;
-}
+nav ul li a:hover { opacity:1; }
 
 /* ================= GALLERY ================= */
 .gallery {
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2, 1fr);
     gap:40px;
     padding:0 60px 80px;
     max-width:1600px;
@@ -67,8 +65,9 @@ nav li a:hover {
 
 .image-wrapper {
     position:relative;
-    aspect-ratio:4/3;
+    aspect-ratio:4 / 3;
     overflow:hidden;
+    background:#eee;
 }
 
 .item img {
@@ -80,7 +79,7 @@ nav li a:hover {
 
 .item:hover img { transform:scale(1.05); }
 
-/* PLAY ICON */
+/* ▶ PLAY ICON */
 .play-overlay {
     position:absolute;
     inset:0;
@@ -164,9 +163,7 @@ nav li a:hover {
 <body>
 
 <nav>
-    <div class="logo">
-        <a href="index.html">PORTFOLIO</a>
-    </div>
+    <div class="logo"><a href="index.html">PORTFOLIO</a></div>
     <ul>
         <li><a href="index.html">WORK</a></li>
         <li><a href="about.html">ABOUT</a></li>
@@ -175,30 +172,63 @@ nav li a:hover {
 
 <main class="gallery">
 
+    <!-- 01 -->
     <div class="item video-item" data-vimeo="76979871">
         <div class="image-wrapper">
             <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=1200">
             <div class="play-overlay"><div class="play-icon"></div></div>
         </div>
-        <div class="item-info">
-            <h3>Interior Objects</h3>
-            <span>2024</span>
-        </div>
+        <div class="item-info"><h3>Interior Objects</h3><span>2024</span></div>
     </div>
 
+    <!-- 02 -->
     <div class="item video-item" data-vimeo="22439234">
         <div class="image-wrapper">
             <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=1200">
             <div class="play-overlay"><div class="play-icon"></div></div>
         </div>
-        <div class="item-info">
-            <h3>Light & Shadow</h3>
-            <span>2024</span>
+        <div class="item-info"><h3>Light & Shadow</h3><span>2024</span></div>
+    </div>
+
+    <!-- 03 -->
+    <div class="item video-item" data-vimeo="146022717">
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1515895309268-5173b15baeba?auto=format&fit=crop&q=80&w=1200">
+            <div class="play-overlay"><div class="play-icon"></div></div>
         </div>
+        <div class="item-info"><h3>Editorial Design</h3><span>2023</span></div>
+    </div>
+
+    <!-- 04 -->
+    <div class="item video-item" data-vimeo="395212534">
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?auto=format&fit=crop&q=80&w=1200">
+            <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+        <div class="item-info"><h3>Architecture Study</h3><span>2023</span></div>
+    </div>
+
+    <!-- 05 -->
+    <div class="item video-item" data-vimeo="1084537">
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1529429617124-95b109e86bb8?auto=format&fit=crop&q=80&w=1200">
+            <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+        <div class="item-info"><h3>Concept Film</h3><span>2022</span></div>
+    </div>
+
+    <!-- 06 -->
+    <div class="item video-item" data-vimeo="357274789">
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?auto=format&fit=crop&q=80&w=1200">
+            <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+        <div class="item-info"><h3>Motion Experiment</h3><span>2022</span></div>
     </div>
 
 </main>
 
+<!-- MODAL -->
 <div class="video-modal" id="videoModal">
     <div class="video-inner">
         <span class="close-btn" id="closeBtn">×</span>

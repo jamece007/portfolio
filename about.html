@@ -3,67 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ABOUT | PORTFOLIO</title>
-
+<title>ABOUT | STUDIO CARZI</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
+    /* 기본 스타일 리셋 */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { 
+        font-family:'Inter', sans-serif; 
+        background:#fff; 
+        color:#1a1a1a; 
+        line-height: 1.8;
+        word-break: keep-all; /* 한글 줄바꿈 예쁘게 */
+    }
 
-body {
-    font-family:'Inter', sans-serif;
-    background:#fff;
-    color:#1a1a1a;
-}
+    /* 네비게이션 (기존 index.html과 동일하게 유지) */
+    nav { 
+        display:flex; 
+        justify-content:space-between; 
+        align-items:center; 
+        padding:40px 60px; 
+        position:sticky; 
+        top:0; 
+        background:rgba(255,255,255,0.9); 
+        z-index:10; 
+    }
+    .logo a { text-decoration:none; color:inherit; font-weight:600; letter-spacing:-0.4px; }
+    nav ul { display:flex; gap:40px; list-style:none; }
+    nav ul li a { text-decoration:none; color:inherit; font-size:0.85rem; letter-spacing:1px; opacity:.8; }
+    nav ul li a:hover { opacity:1; }
 
-nav {
-    display:flex;
-    justify-content:space-between;
-    padding:40px 60px;
-}
+    /* About 컨텐츠 레이아웃 */
+    .container {
+        max-width: 900px;
+        margin: 100px auto;
+        padding: 0 60px;
+    }
 
-nav a {
-    text-decoration:none;
-    color:inherit;
-}
+    /* 상단 큰 로고 스타일 (uniquemo 스타일) */
+    .brand-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 60px;
+        letter-spacing: 2px;
+    }
 
-.content {
-    max-width:900px;
-    margin:120px auto;
-    padding:0 20px;
-}
+    /* 섹션 스타일 */
+    section {
+        margin-bottom: 100px;
+    }
 
-h1 {
-    font-size:2.2rem;
-    font-weight:400;
-    margin-bottom:40px;
-}
+    .divider {
+        width: 20px;
+        height: 1px;
+        background: #1a1a1a;
+        margin-bottom: 30px;
+    }
 
-p {
-    font-size:1rem;
-    line-height:1.8;
-    color:#444;
-    max-width:700px;
-}
+    .section-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+    }
+
+    /* 텍스트 스타일: 영문과 국문을 구분 */
+    .desc-en {
+        font-size: 1.05rem;
+        font-weight: 300;
+        color: #1a1a1a;
+        margin-bottom: 30px;
+        max-width: 800px;
+    }
+
+    .desc-ko {
+        font-size: 0.95rem;
+        font-weight: 400;
+        color: #555;
+        margin-bottom: 50px;
+        line-height: 2;
+    }
+
+    /* 푸터 */
+    footer {
+        padding: 60px;
+        font-size: 0.75rem;
+        color: #999;
+        border-top: 1px solid #eee;
+        text-align: center;
+    }
+
+    @media(max-width:900px){
+        .container { padding: 0 25px; margin-top: 60px; }
+        nav { padding: 30px 25px; }
+        .brand-title { font-size: 1.8rem; }
+    }
 </style>
 </head>
-
 <body>
 
 <nav>
-    <a href="index.html">PORTFOLIO</a>
-    <a href="index.html">WORK</a>
+    <div class="logo"><a href="index.html">STUDIO CARZI</a></div>
+    <ul>
+        <li><a href="index.html">WORK</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+    </ul>
 </nav>
 
-<section class="content">
-    <h1>About</h1>
-    <p>
-        This portfolio showcases selected works focusing on visual storytelling,
-        motion design, and spatial aesthetics.<br><br>
-        The work explores the balance between structure and emotion,
-        blending digital craft with cinematic sensibility.
-    </p>
-</section>
+<div class="container">
+    <h1 class="brand-title">STUDIO CARZI</h1>
+
+    <section>
+        <div class="divider"></div>
+        <div class="desc-en">
+            Hello, I am a motion graphics artist based in Seoul. I specialize in creating visually striking 3D motion graphics, including product showcases and brand identity projects. I place great importance on intricate details and emotional storytelling.
+        </div>
+        <div class="desc-ko">
+            안녕하세요, 서울을 기반으로 활동하는 모션 그래픽 아티스트입니다. 3D 모션 그래픽을 활용해 감각적인 애니메이션과 비주얼을 제작하며, 제품 및 브랜드 아이덴티티 작업을 진행하고 있습니다. 섬세한 디테일과 감성적인 연출을 중요하게 생각합니다.
+        </div>
+    </section>
+
+    <section>
+        <div class="divider"></div>
+        <h2 class="section-title">What I Do</h2>
+        <div class="desc-en">
+            I enjoy crafting charming and whimsical motions while striving for clean and sophisticated designs. Bringing emotion to stories and breathing life into visuals is at the core of my work.
+        </div>
+        <div class="desc-ko">
+            귀엽고 아기자기한 모션을 즐기며, 깔끔하면서도 감각적인 디자인을 지향합니다. 이야기에 감성을 더하고, 화면 속에 생동감을 불어넣는 것이 저의 작업 방식입니다.
+        </div>
+    </section>
+
+    <section>
+        <div class="divider"></div>
+        <h2 class="section-title">Contact</h2>
+        <div class="desc-en">
+            For project inquiries or collaborations, please feel free to reach out via email.<br>
+            <strong>email@example.com</strong>
+        </div>
+    </section>
+</div>
+
+<footer>
+    © 2024-2025 STUDIO CARZI. All RIGHTS RESERVED.
+</footer>
 
 </body>
 </html>

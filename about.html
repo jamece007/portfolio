@@ -16,12 +16,12 @@
         word-break: keep-all; 
     }
 
-    /* NAV - 인덱스 페이지와 동일하게 수정 */
+    /* NAV - 인덱스 페이지와 동일 */
     nav { 
         display:flex; 
         justify-content:space-between; 
         align-items:center; 
-        padding:30px 30px; /* 인덱스와 동일하게 30px로 조정 */
+        padding:30px 30px; 
         position:sticky; 
         top:0; 
         background:rgba(255,255,255,0.9); 
@@ -35,21 +35,13 @@
     /* About 컨텐츠 레이아웃 */
     .container {
         max-width: 900px;
-        margin: 80px auto 100px; /* 상단 여백 살짝 조정 */
-        padding: 0 30px; /* 인덱스 패딩과 통일감을 위해 30px로 조정 */
-    }
-
-    /* 상단 큰 로고 스타일 */
-    .brand-title {
-        font-size: 2.5rem;
-        font-weight: 600;
-        margin-bottom: 60px;
-        letter-spacing: 2px;
+        margin: 80px auto 100px;
+        padding: 0 30px;
     }
 
     /* 섹션 스타일 */
     section {
-        margin-bottom: 80px;
+        margin-bottom: 60px;
     }
 
     .divider {
@@ -60,43 +52,34 @@
     }
 
     .section-title {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: 600;
-        margin-bottom: 25px;
+        margin-bottom: 15px;
         letter-spacing: 1px;
     }
 
     /* 텍스트 스타일 */
-    .desc-en {
-        font-size: 1.05rem;
-        font-weight: 300;
-        color: #1a1a1a;
-        margin-bottom: 25px;
-        max-width: 800px;
-    }
-
     .desc-ko {
         font-size: 0.95rem;
         font-weight: 400;
-        color: #666; /* 가독성을 위해 살짝 조절 */
-        margin-bottom: 50px;
+        color: #444;
         line-height: 2;
+        max-width: 700px;
     }
 
-    /* 푸터 */
-    footer {
-        padding: 60px;
-        font-size: 0.75rem;
-        color: #999;
-        border-top: 1px solid #eee;
-        text-align: center;
+    .contact-mail {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        text-decoration: none;
+        border-bottom: 1px solid #1a1a1a;
+        padding-bottom: 2px;
     }
 
-    /* 반응형 모바일 - 인덱스 미디어 쿼리와 일치화 */
+    /* 반응형 모바일 */
     @media(max-width:900px){
         nav { padding:30px 20px; }
         .container { padding: 0 20px; margin-top: 60px; }
-        .brand-title { font-size: 1.8rem; }
     }
 </style>
 </head>
@@ -111,18 +94,19 @@
 </nav>
 
 <div class="container">
-       <section>
+    <section>
         <div class="divider"></div>
-
         <div class="desc-ko">
-            안녕하세요, 모션 그래픽 아티스트 정재훈입니다. 3D 모션 그래픽을 활용해 감각적인 애니메이션과 비주얼을 제작하며, 제품 및 브랜드 아이덴티티 작업을 진행하고 있습니다. 섬세한 디테일과 감성적인 연출을 중요하게 생각합니다.
+            안녕하세요, 모션 그래픽 아티스트 정재훈입니다. <br>
+            3D 모션 그래픽을 활용해 감각적인 애니메이션과 비주얼을 제작하며, 제품 및 브랜드 아이덴티티 작업을 진행하고 있습니다. 섬세한 디테일과 감성적인 연출을 중요하게 생각합니다.
         </div>
     </section>
+
+    <section>
         <h2 class="section-title">Contact</h2>
-        <div class="desc-en">
-            <strong>jamece007@naver.com</strong>
-        </div>
+        <a href="mailto:jamece007@naver.com" class="contact-mail">jamece007@naver.com</a>
     </section>
 </div>
+
 </body>
 </html>

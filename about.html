@@ -16,7 +16,7 @@
         word-break: keep-all; 
     }
 
-    /* NAV - 인덱스 페이지와 동일 */
+    /* NAV - 인덱스 페이지(INDEX.HTML)와 100% 동일하게 설정 */
     nav { 
         display:flex; 
         justify-content:space-between; 
@@ -32,16 +32,17 @@
     nav ul li a { text-decoration:none; color:inherit; font-size:0.85rem; letter-spacing:1px; opacity:.8; }
     nav ul li a:hover { opacity:1; }
 
-    /* About 컨텐츠 레이아웃 */
+    /* About 컨텐츠 레이아웃 - 인덱스 갤러리 max-width와 통일감 부여 */
     .container {
-        max-width: 900px;
+        max-width: 1400px; /* 인덱스 gallery의 max-width와 통일 */
         margin: 80px auto 100px;
-        padding: 0 30px;
+        padding: 0 30px; /* 인덱스 gallery의 padding과 통일 */
     }
 
     /* 섹션 스타일 */
     section {
         margin-bottom: 60px;
+        max-width: 800px; /* 텍스트 가독성을 위해 본문폭만 제한 */
     }
 
     .divider {
@@ -64,7 +65,6 @@
         font-weight: 400;
         color: #444;
         line-height: 2;
-        max-width: 700px;
     }
 
     .contact-mail {
@@ -74,9 +74,11 @@
         text-decoration: none;
         border-bottom: 1px solid #1a1a1a;
         padding-bottom: 2px;
+        transition: opacity 0.3s ease;
     }
+    .contact-mail:hover { opacity: 0.6; }
 
-    /* 반응형 모바일 */
+    /* 반응형 모바일 - 인덱스 페이지 미디어쿼리와 동일하게 설정 */
     @media(max-width:900px){
         nav { padding:30px 20px; }
         .container { padding: 0 20px; margin-top: 60px; }

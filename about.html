@@ -25,7 +25,7 @@
         min-height: 100vh;
     }
 
-    /* 2. NAV - 인덱스 페이지와 동일하게 유지 */
+    /* 2. NAV */
     nav { 
         display:flex; 
         justify-content:space-between; 
@@ -95,8 +95,24 @@
         font-weight: 600; 
         color: #1a1a1a; 
         display: block;
-        margin-bottom: 1px; /* 텍스트 간격 2px */
-        cursor: default;     /* 마우스 포인터를 기본형으로 */
+        margin-bottom: 1px; 
+        cursor: default;     
+        text-decoration: none; /* 링크 밑줄 제거 */
+    }
+
+    /* 비메오 링크 전용 추가 스타일 */
+    .vimeo-link {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+    }
+    .vimeo-link:hover {
+        opacity: 0.5; /* 마우스 올렸을 때 피드백 */
+    }
+    .vimeo-icon {
+        font-size: 1.2rem;
+        margin-right: 5px;
     }
 
     /* 5. 반응형 모바일 */
@@ -122,7 +138,7 @@
         <div class="divider"></div>
         <div class="desc-ko">
             안녕하세요, 모션 그래픽 아티스트 정재훈입니다. <br>
-            3D 모션 그래픽을 활용해 감각적인 애니메이션과 비주얼을 제작하며, 미디어아트 및 제품홍보영상 작업을 진행하고 있습니다. 섬세한 디테일과 감성적인 연출을 중요하게 생각합니다.
+            3D 모션 그래픽을 활용해 감각적인 애니메이션과 비주얼을 제작하며, 미디어 아트 및 제품 홍보 영상을 진행하고 있습니다. 섬세한 디테일과 감성적인 연출을 중요하게 생각합니다.
         </div>
     </section>
 
@@ -130,6 +146,11 @@
         <h2 class="section-title">Contact</h2>
         <span class="contact-info">010 2541 4059</span>
         <span class="contact-info">jamece007@naver.com</span>
+        
+        <a href="https://vimeo.com/user2822925/videos" target="_blank" class="contact-info vimeo-link">
+            <span class="vimeo-icon">🎬</span> 
+            <span style="font-size: 0.85rem; font-weight: 400;">Vimeo</span>
+        </a>
     </section>
 </div>
 

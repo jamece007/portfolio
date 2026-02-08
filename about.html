@@ -6,7 +6,9 @@
 <title>ABOUT | 정재훈</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-    /* 기본 스타일 리셋 */
+    /* 스크롤바 유무에 따른 메뉴 튐 방지 - INDEX와 동일하게 추가 */
+    html { overflow-y: scroll; }
+    
     * { margin:0; padding:0; box-sizing:border-box; }
     body { 
         font-family:'Inter', sans-serif; 
@@ -16,71 +18,40 @@
         word-break: keep-all; 
     }
 
-    /* NAV - 인덱스 페이지(INDEX.HTML)와 100% 동일하게 설정 */
+    /* NAV - INDEX 페이지와 픽셀 단위까지 일치 */
     nav { 
         display:flex; 
         justify-content:space-between; 
         align-items:center; 
-        padding:30px 30px; 
+        padding:0 30px; 
+        height: 100px; /* INDEX와 동일한 높이 */
         position:sticky; 
         top:0; 
-        background:rgba(255,255,255,0.9); 
+        background:rgba(255,255,255,0.95); 
+        backdrop-filter: blur(5px);
         z-index:10; 
     }
-    .logo a { text-decoration:none; color:inherit; font-weight:600; letter-spacing:-0.4px; }
+    .logo a { text-decoration:none; color:inherit; font-weight:600; letter-spacing:-0.4px; font-size: 1rem; }
     nav ul { display:flex; gap:40px; list-style:none; }
     nav ul li a { text-decoration:none; color:inherit; font-size:0.85rem; letter-spacing:1px; opacity:.8; }
     nav ul li a:hover { opacity:1; }
 
-    /* About 컨텐츠 레이아웃 - 인덱스 갤러리 max-width와 통일감 부여 */
+    /* About 컨텐츠 레이아웃 */
     .container {
-        max-width: 1400px; /* 인덱스 gallery의 max-width와 통일 */
+        max-width: 1400px;
         margin: 80px auto 100px;
-        padding: 0 30px; /* 인덱스 gallery의 padding과 통일 */
+        padding: 0 30px;
     }
 
-    /* 섹션 스타일 */
-    section {
-        margin-bottom: 60px;
-        max-width: 800px; /* 텍스트 가독성을 위해 본문폭만 제한 */
-    }
+    section { margin-bottom: 60px; max-width: 800px; }
+    .divider { width: 20px; height: 1px; background: #1a1a1a; margin-bottom: 30px; }
+    .section-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; letter-spacing: 1px; }
+    .desc-ko { font-size: 0.95rem; font-weight: 400; color: #444; line-height: 2; }
+    .contact-mail { font-size: 1rem; font-weight: 600; color: #1a1a1a; text-decoration: none; border-bottom: 1px solid #1a1a1a; padding-bottom: 2px; }
 
-    .divider {
-        width: 20px;
-        height: 1px;
-        background: #1a1a1a;
-        margin-bottom: 30px;
-    }
-
-    .section-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 15px;
-        letter-spacing: 1px;
-    }
-
-    /* 텍스트 스타일 */
-    .desc-ko {
-        font-size: 0.95rem;
-        font-weight: 400;
-        color: #444;
-        line-height: 2;
-    }
-
-    .contact-mail {
-        font-size: 1rem;
-        font-weight: 600;
-        color: #1a1a1a;
-        text-decoration: none;
-        border-bottom: 1px solid #1a1a1a;
-        padding-bottom: 2px;
-        transition: opacity 0.3s ease;
-    }
-    .contact-mail:hover { opacity: 0.6; }
-
-    /* 반응형 모바일 - 인덱스 페이지 미디어쿼리와 동일하게 설정 */
+    /* 반응형 모바일 - INDEX와 동일하게 적용 */
     @media(max-width:900px){
-        nav { padding:30px 20px; }
+        nav { padding:0 20px; height: 80px; }
         .container { padding: 0 20px; margin-top: 60px; }
     }
 </style>

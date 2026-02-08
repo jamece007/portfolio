@@ -89,18 +89,14 @@
         line-height: 2; 
     }
 
-    /* 4. 이메일/연락처 스타일 - 간격 2px로 수정 */
-    .contact-link { 
+    /* 4. 이메일/연락처 텍스트 스타일 */
+    .contact-info { 
         font-size: 1rem; 
         font-weight: 600; 
         color: #1a1a1a; 
-        text-decoration: none; 
-        transition: opacity 0.3s ease;
         display: block;
-        margin-bottom: 2px; /* 이 부분을 8px에서 2px로 수정했습니다 */
-    }
-    .contact-link:hover {
-        opacity: 0.5;
+        margin-bottom: 1px; /* 텍스트 간격 2px */
+        cursor: default;     /* 마우스 포인터를 기본형으로 */
     }
 
     /* 5. 반응형 모바일 */
@@ -132,8 +128,8 @@
 
     <section>
         <h2 class="section-title">Contact</h2>
-        <a href="tel:01025414059" class="contact-link">010 2541 4059</a>
-        <a href="mailto:jamece007@naver.com" class="contact-link">jamece007@naver.com</a>
+        <span class="contact-info">010 2541 4059</span>
+        <span class="contact-info">jamece007@naver.com</span>
     </section>
 </div>
 
